@@ -1,8 +1,6 @@
-package com.hallowizer.displaySlot.plugin.apiLoader;
+package com.hallowizer.displaySlot.apiLoader;
 
 import java.util.logging.Logger;
-
-import com.hallowizer.displaySlot.api.PluginContext;
 
 public interface ApiLoaderContext {
 	public Logger getLogger();
