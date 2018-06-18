@@ -23,11 +23,13 @@ public final class DisplaySlotPlugin extends JavaPlugin {
 	public void onEnable() {
 		Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
 		DisplaySlotMain.onEnable();
+		getLogger().info("DisplaySlot has been enabled!");
 	}
 	
 	@Override
 	public void onDisable() {
 		DisplaySlotMain.onDisable();
+		getLogger().info("DisplaySlot has been disabled!");
 	}
 	
 	public BukkitDisplaySlotPlatform getPlatform() {
