@@ -1,4 +1,4 @@
-package com.hallowizer.displaySlot.plugin.apiLoader;
+package com.hallowizer.displaySlot.apiLoader;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -23,7 +23,7 @@ public class ApiLoader {
 			error = true;
 		}
 		
-		File file = new File(".api.jar");
+		File file = new File(ctx.getDataFolder(), "api.jar");
 		
 		if (!file.exists()) {
 			if (error) {
