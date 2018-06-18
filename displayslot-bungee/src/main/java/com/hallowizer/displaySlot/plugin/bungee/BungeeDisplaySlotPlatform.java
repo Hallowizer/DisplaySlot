@@ -1,5 +1,6 @@
 package com.hallowizer.displaySlot.plugin.bungee;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -58,5 +59,10 @@ public final class BungeeDisplaySlotPlatform implements IDisplaySlotPlatform {
 	public void disablePlugin() {
 		ProxyServer.getInstance().getPluginManager().unregisterListeners(DisplaySlotPlugin.getInstance());
 		DisplaySlotPlugin.getInstance().onDisable();
+	}
+
+	@Override
+	public File getDataFolder() {
+		return DisplaySlotPlugin.getInstance().getDataFolder();
 	}
 }
