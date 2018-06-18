@@ -1,5 +1,0 @@
-name: DisplaySlot
-main: com.hallowizer.displaySlot.plugin.bungee.DisplaySlotPlugin
-version: 1.0
-author: Hallowizer
-description: Allows the server to place custom widgets on the player's screen.
