@@ -1,5 +1,6 @@
 package com.hallowizer.displaySlot.plugin.bukkit;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -54,5 +55,10 @@ public final class BukkitDisplaySlotPlatform implements IDisplaySlotPlatform {
 	@Override
 	public void disablePlugin() {
 		Bukkit.getPluginManager().disablePlugin(DisplaySlotPlugin.getInstance());
+	}
+
+	@Override
+	public File getDataFolder() {
+		return DisplaySlotPlugin.getInstance().getDataFolder();
 	}
 }
