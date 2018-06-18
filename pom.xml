@@ -10,6 +10,8 @@
   	<module>displayslot-plugin</module>
   	<module>displayslot-api-impl</module>
   	<module>displayslot-api-loader</module>
+  	<module>displayslot-bukkit</module>
+  	<module>displayslot-bungee</module>
   </modules>
   
   <build>
