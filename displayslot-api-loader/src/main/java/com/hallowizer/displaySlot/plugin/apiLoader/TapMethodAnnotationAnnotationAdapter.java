@@ -1,4 +1,4 @@
-package com.hallowizer.displaySlot.plugin.apiLoader;
+package com.hallowizer.displaySlot.apiLoader;
 
 import static org.objectweb.asm.Opcodes.ASM5;
 
@@ -8,8 +8,8 @@ public final class TapMethodAnnotationAnnotationAdapter extends AnnotationVisito
 	private TapMethodAnnotationMethodAdapter mv;
 	private ApiLoaderContext ctx;
 	
-	public TapMethodAnnotationAnnotationAdapter(AnnotationVisitor av, TapMethodAnnotationMethodAdapter mv, ApiLoaderContext ctx) {
-		super(ASM5, av);
+	public TapMethodAnnotationAnnotationAdapter(TapMethodAnnotationMethodAdapter mv, ApiLoaderContext ctx) {
+		super(ASM5, null);
 		this.mv = mv;
 		this.ctx = ctx;
 	}

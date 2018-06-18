@@ -1,4 +1,4 @@
-package com.hallowizer.displaySlot.plugin.apiLoader;
+package com.hallowizer.displaySlot.apiLoader;
 
 import static org.objectweb.asm.Opcodes.ASM5;
 
@@ -13,36 +13,37 @@ import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.TypePath;
 
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitAnnotableParameterCountInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitAnnotationDefaultInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitAttributeInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitCodeInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitFieldInsnInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitFrameInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitIincInsnInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitInsnAnnotationInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitInsnInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitIntInsnInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitInvokeDynamicInsnInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitJumpInsnInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitLabelInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitLdcInsnInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitLineNumberInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitLocalVariableAnnotationInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitLocalVariableInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitLookupSwitchInsnInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitMaxsInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitMethodInsnInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitMultiANewArrayInsnInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitParameterAnnotationInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitParameterInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitTableSwitchInsnInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitTryCatchAnnotationInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitTryCatchBlockInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitTypeAnnotationInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitTypeInsnInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.MethodVisitVarInsnInstruction;
-import com.hallowizer.displaySlot.plugin.apiLoader.visitInstruction.VisitInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitAnnotableParameterCountInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitAnnotationDefaultInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitAnnotationInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitAttributeInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitCodeInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitFieldInsnInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitFrameInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitIincInsnInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitInsnAnnotationInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitInsnInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitIntInsnInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitInvokeDynamicInsnInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitJumpInsnInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitLabelInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitLdcInsnInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitLineNumberInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitLocalVariableAnnotationInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitLocalVariableInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitLookupSwitchInsnInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitMaxsInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitMethodInsnInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitMultiANewArrayInsnInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitParameterAnnotationInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitParameterInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitTableSwitchInsnInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitTryCatchAnnotationInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitTryCatchBlockInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitTypeAnnotationInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitTypeInsnInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.MethodVisitVarInsnInstruction;
+import com.hallowizer.displaySlot.apiLoader.visitInstruction.VisitInstruction;
 
 public final class TapMethodAnnotationMethodAdapter extends MethodVisitor {
 	private ClassVisitor cv;
@@ -67,12 +68,10 @@ public final class TapMethodAnnotationMethodAdapter extends MethodVisitor {
 
 	@Override
 	public AnnotationVisitor visitAnnotation(String descriptor, boolean visible) {
-		AnnotationVisitor av = mv.visitAnnotation(descriptor, visible);
-
 		if (descriptor.equals("com.hallowizer.displaySlot.api.platform.PlatformOnly"))
-			return new TapMethodAnnotationAnnotationAdapter(av, this, ctx);
+			return new TapMethodAnnotationAnnotationAdapter(this, ctx);
 
-		return av;
+		return visitUninterestedAnnotation(descriptor, visible);
 	}
 
 	private List<VisitInstruction<MethodVisitor>> procrastinatedInstructions = new ArrayList<>();
@@ -92,6 +91,12 @@ public final class TapMethodAnnotationMethodAdapter extends MethodVisitor {
 	// The following code probably isn't that interesting. It just has an implementation for
 	// every visit method that adds itself to the procrastinatedInstructions list.
 	// -----------------------------------------------------------------------------------------------
+	
+	private AnnotationVisitor visitUninterestedAnnotation(String descriptor, boolean visible) {
+		ProcrastinatingAnnotationVisitor av = new ProcrastinatingAnnotationVisitor();
+		procrastinatedInstructions.add(new MethodVisitAnnotationInstruction(av, descriptor, visible));
+		return av;
+	}
 	
 	@Override
 	public void visitParameter(final String name, final int access) {
