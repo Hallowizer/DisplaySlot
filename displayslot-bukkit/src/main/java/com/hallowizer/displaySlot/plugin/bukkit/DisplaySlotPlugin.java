@@ -1,5 +1,6 @@
 package com.hallowizer.displaySlot.plugin.bukkit;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.hallowizer.displaySlot.plugin.DisplaySlotMain;
@@ -20,6 +21,7 @@ public final class DisplaySlotPlugin extends JavaPlugin {
 	
 	@Override
 	public void onEnable() {
+		Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
 		DisplaySlotMain.onEnable();
 	}
 	
